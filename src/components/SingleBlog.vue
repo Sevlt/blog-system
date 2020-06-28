@@ -9,6 +9,8 @@
 				{{ type }}
 			</li>
 		</ul>
+		<button @click="deleteBlod">删除</button>
+		<router-link v-bind:to="'/edit/' + id">编辑</router-link>
 	</div>
 </template>
 
@@ -25,11 +27,17 @@ export default {
 		this.$http
 			.get('https://blog-system-bd04c.firebaseio.com/posts/' + this.id + '/.json')
 			.then((res) => {
-				return res.json()
+				this.blog = res.body
 			})
-			.then((res) => {
-				this.blog = res
-			})
+	},
+	methods: {
+		deleteBlod() {
+			this.$http
+				.delete('https://blog-system-bd04c.firebaseio.com/posts/' + this.id + '/.json')
+				.then((res) => {
+					this.$router.push({ path: '/' })
+				})
+		},
 	},
 }
 </script>

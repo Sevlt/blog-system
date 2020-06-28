@@ -24,7 +24,6 @@ export default {
 		this.$http
 			.get('https://blog-system-bd04c.firebaseio.com/posts.json')
 			.then((res) => {
-				// this.blogs = res.body.slice(0, 10)
 				return res.json()
 			})
 			.then((res) => {
