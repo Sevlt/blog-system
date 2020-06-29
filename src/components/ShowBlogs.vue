@@ -1,10 +1,10 @@
 <template>
-	<div v-theme:column="'narrow'" id="showBlogs">
+	<div v-theme:column="'wide'" id="showBlogs">
 		<h1>Blog</h1>
 		<input type="text" v-model="search" placeholder="搜索" />
 		<div class="singleBlog" v-for="(blog, index) in filterBlog" :key="index">
 			<router-link v-bind:to="'/blog/' + blog.id">
-				<h2 v-rainbow>{{ blog.title | touppercase }}</h2>
+				<h2 v-rainbow>{{ blog.title }}</h2>
 			</router-link>
 			<article>{{ blog.content | snippet }}</article>
 		</div>
@@ -53,6 +53,7 @@ export default {
 #showBlogs {
 	min-width: 500px;
 	margin: 0 auto;
+	border-radius: 10px;
 }
 .singleBlog {
 	padding: 20px;
@@ -60,13 +61,17 @@ export default {
 	box-sizing: border-box;
 	background: #eee;
 	border: 1px dotted #aaa;
+	border-radius: 10px;
 }
 #showBlogs a {
 	text-decoration: none;
 }
 input[type='text'] {
 	padding: 8px;
+	margin-top: 10px;
 	width: 100%;
 	box-sizing: border-box;
+	border-radius: 5px;
+	outline: none;
 }
 </style>
