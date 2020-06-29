@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
 	name: 'showBlogs',
 	data() {
@@ -21,10 +22,10 @@ export default {
 		}
 	},
 	created() {
-		this.$http
-			.get('https://blog-system-bd04c.firebaseio.com/posts.json')
+		axios
+			.get('/posts.json')
 			.then((res) => {
-				return res.json()
+				return res.data
 			})
 			.then((res) => {
 				var blogsArry = []

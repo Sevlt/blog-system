@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
 	name: 'addBlog',
 	data() {
@@ -56,11 +57,9 @@ export default {
 	},
 	methods: {
 		post() {
-			this.$http
-				.post('https://blog-system-bd04c.firebaseio.com/posts.json', this.blog)
-				.then((res) => {
-					this.submited = true
-				})
+			axios.post('/posts.json', this.blog).then((res) => {
+				this.submited = true
+			})
 		},
 	},
 }

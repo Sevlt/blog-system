@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
 	name: 'SingleBlog',
 	data() {
@@ -24,19 +25,15 @@ export default {
 		}
 	},
 	created() {
-		this.$http
-			.get('https://blog-system-bd04c.firebaseio.com/posts/' + this.id + '/.json')
-			.then((res) => {
-				this.blog = res.body
-			})
+		axios.get('/posts/' + this.id + '/.json').then((res) => {
+			this.blog = res.data
+		})
 	},
 	methods: {
 		deleteBlod() {
-			this.$http
-				.delete('https://blog-system-bd04c.firebaseio.com/posts/' + this.id + '/.json')
-				.then((res) => {
-					this.$router.push({ path: '/' })
-				})
+			axios.delete('/posts/' + this.id + '/.json').then((res) => {
+				this.$router.push({ path: '/' })
+			})
 		},
 	},
 }

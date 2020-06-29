@@ -3,6 +3,9 @@ import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 import App from './App.vue'
 import Routes from './routes'
+import axios from 'axios'
+
+axios.defaults.baseURL = 'https://blog-system-bd04c.firebaseio.com'
 
 Vue.use(VueResource)
 Vue.use(VueRouter)
