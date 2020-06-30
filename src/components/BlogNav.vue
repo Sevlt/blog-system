@@ -16,6 +16,12 @@ export default {
 </script>
 
 <style scoped>
+nav {
+	background: #007acc;
+	width: 100%;
+	padding: 30px 0;
+	margin-bottom: 35px;
+}
 ul {
 	list-style-type: none;
 	text-align: center;
@@ -30,11 +36,6 @@ a {
 	text-decoration: none;
 	padding: 12px;
 	border-radius: 5px;
-}
-nav {
-	background: #007acc;
-	padding: 30px 0;
-	margin-bottom: 35px;
 }
 .router-link-active {
 	background: rgba(255, 255, 255, 0.8);

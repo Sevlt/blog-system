@@ -1,5 +1,5 @@
 <template>
-	<div id="EditBlog">
+	<div v-theme:column="'wide'" id="EditBlog">
 		<h2>编辑博客</h2>
 		<form v-if="!submited">
 			<label>标题 </label><input type="text" v-model="blog.title" required />
@@ -79,13 +79,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#addBlog * {
+#EditBlog * {
 	box-sizing: border-box;
 }
-#addBlog {
-	margin: 20px auto;
-	max-width: 600px;
-	pad: 20px;
+#EditBlog {
+	min-width: 500px;
+	margin: 0 auto;
+	border-radius: 10px;
+	margin-bottom: 30px;
 }
 label {
 	display: block;
@@ -97,6 +98,8 @@ select {
 	display: block;
 	width: 100%;
 	padding: 8px;
+	border-radius: 5px;
+	outline: none;
 }
 textarea {
 	height: 200px;
@@ -119,6 +122,7 @@ button {
 	border-radius: 4px;
 	font-size: 18px;
 	cursor: pointer;
+	outline: none;
 }
 .preview {
 	padding: 10px 20px;

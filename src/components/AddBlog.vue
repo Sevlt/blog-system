@@ -1,9 +1,9 @@
 <template>
-	<div id="addBlog">
+	<div v-theme:column="'wide'" id="addBlog">
 		<h2>写博客</h2>
 		<form v-if="!submited">
-			<label>标题 </label><input type="text" v-model="blog.title" required />
-			<label>内容 </label><textarea v-model="blog.content"></textarea>
+			<label>标题 </label><input type="text" v-model="blog.title" /> <label>内容 </label
+			><textarea v-model="blog.content"></textarea>
 			<div class="checkBoxes">
 				<label><input type="checkbox" value="Vue" v-model="blog.types" /> Vue</label>
 				<label><input type="checkbox" value="React" v-model="blog.types" /> React</label>
@@ -61,23 +61,28 @@ export default {
 	},
 	methods: {
 		post() {
-			axios.post('/posts.json', this.blog).then((res) => {
-				this.submited = true
-			})
+			if (this.blog.title !== '') {
+				axios.post('/posts.json', this.blog).then((res) => {
+					this.submited = true
+				})
+			} else {
+				alert('博客标题不能为空！')
+			}
 		},
 	},
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 #addBlog * {
 	box-sizing: border-box;
 }
 #addBlog {
-	margin: 20px auto;
-	max-width: 600px;
-	pad: 20px;
+	min-width: 500px;
+	margin: 0 auto;
+	border-radius: 10px;
+	margin-bottom: 30px;
 }
 label {
 	display: block;
@@ -90,6 +95,7 @@ select {
 	width: 100%;
 	padding: 8px;
 	border-radius: 5px;
+	outline: none;
 }
 textarea {
 	height: 200px;
@@ -113,6 +119,7 @@ button {
 	border-radius: 4px;
 	font-size: 18px;
 	cursor: pointer;
+	outline: none;
 }
 .preview {
 	padding: 10px 20px;

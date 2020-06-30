@@ -49,11 +49,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #showBlogs {
 	min-width: 500px;
 	margin: 0 auto;
 	border-radius: 10px;
+	margin-bottom: 30px;
 }
 .singleBlog {
 	padding: 20px;

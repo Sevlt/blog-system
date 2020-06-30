@@ -1,7 +1,5 @@
 <template>
 	<div id="app">
-		<!-- <AddBlog></AddBlog> -->
-		<!-- <ShowBlogs></ShowBlogs> -->
 		<BlogNav></BlogNav>
 		<router-view></router-view>
 	</div>
@@ -23,6 +21,10 @@ export default {
 </script>
 
 <style>
+/* 未激活滚动条时滚动条显示灰色不可用（保留位置） */
+html {
+	overflow-y: scroll;
+}
 * {
 	margin: 0;
 	padding: 0;
