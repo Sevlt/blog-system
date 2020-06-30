@@ -1,5 +1,5 @@
 <template>
-	<div id="SingBlog">
+	<div id="SingleBlog">
 		<h1>{{ blog.title }}</h1>
 		<br />
 		<article>{{ blog.content }}</article>
@@ -67,7 +67,7 @@ export default {
 	cursor: pointer;
 	width: 100px;
 }
-.button.left{
+.button.left {
 	margin-left: 15px;
 }
 </style>

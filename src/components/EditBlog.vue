@@ -1,5 +1,5 @@
 <template>
-	<div id="addBlog">
+	<div id="EditBlog">
 		<h2>编辑博客</h2>
 		<form v-if="!submited">
 			<label>标题 </label><input type="text" v-model="blog.title" required />
@@ -46,25 +46,23 @@
 <script>
 import axios from 'axios'
 export default {
-	name: 'addBlog',
+	name: 'EditBlog',
 	data() {
 		return {
 			id: this.$route.params.id,
-			blog: {
-				// title: '',
-				// content: '',
-				// types: [],
-				// author: '',
-			},
+			blog: {},
 			authors: ['SEVLT', 'Jack', 'Mike'],
 			submited: false,
 		}
 	},
 	methods: {
 		fetchData() {
-			console.log(this.blog.types)
 			axios.get('/posts/' + this.id + '/.json').then((res) => {
 				this.blog = res.data
+				// 若旧博客未选择类型，点击编辑后把types置为空数组
+				if (this.blog.types === undefined) {
+					this.blog.types = []
+				}
 			})
 		},
 		post() {
