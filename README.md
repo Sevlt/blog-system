@@ -31,28 +31,28 @@ Vue.filter('snippet', function(value) {
 ### 根据博客标题搜索文章
 
 ```javascript
-		filterBlog() {
-			return this.blogs.filter((blog) => {
-				return blog.title.match(this.search)
-			})
-		},
+filterBlog() {
+	return this.blogs.filter((blog) => {
+		return blog.title.match(this.search)
+	})
+},
 ```
 
 ### 点击编辑按钮原始数据继续保留在表单
 
 ```javascript
-	created() {
-		this.fetchData()
-    },
-    methos() {
-		fetchData() {
-			axios.get('/posts/' + this.id + '/.json'then((res) => {
-				this.blog = res.data
-				// 若旧博客未选择类型，点击编辑后把types置为空数组
-				if (this.blog.types === undefined) {
-					this.blog.types = []
-				}
-			})
-		},
-	}
+created() {
+	this.fetchData()
+},
+methos() {
+	fetchData() {
+		axios.get('/posts/' + this.id + '/.json'then((res) => {
+			this.blog = res.data
+			// 若旧博客未选择类型，点击编辑后把types置为空数组
+			if (this.blog.types === undefined) {
+				this.blog.types = []
+			}
+		})
+	},
+}
 ```
