@@ -44,14 +44,15 @@ Vue.filter('snippet', function(value) {
 	created() {
 		this.fetchData()
     },
-    methos()
-    fetchData() {
-	axios.get('/posts/' + this.id + '/.json'then((res) => {
-		this.blog = res.data
-		// 若旧博客未选择类型，点击编辑后把types置为空数组
-		if (this.blog.types === undefined) {
-			this.blog.types = []
-		}
-	})
+    methos() {
+		fetchData() {
+			axios.get('/posts/' + this.id + '/.json'then((res) => {
+				this.blog = res.data
+				// 若旧博客未选择类型，点击编辑后把types置为空数组
+				if (this.blog.types === undefined) {
+					this.blog.types = []
+				}
+			})
 		},
+	}
 ```
