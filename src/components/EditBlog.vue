@@ -71,6 +71,7 @@ export default {
 			})
 		},
 	},
+	// created()：在实例创建完成后被立即调用
 	created() {
 		this.fetchData()
 	},

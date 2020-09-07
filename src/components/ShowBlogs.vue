@@ -21,6 +21,7 @@ export default {
 			search: '',
 		}
 	},
+	// created()：在实例创建完成后被立即调用
 	created() {
 		axios
 			.get('/posts.json')
@@ -40,6 +41,7 @@ export default {
 				}
 			})
 	},
+	// 计算属性，相对于 methods 存在性能优势
 	computed: {
 		filterBlog() {
 			return this.blogs.filter((blog) => {

@@ -28,6 +28,7 @@ export default {
 			blog: {},
 		}
 	},
+	// created()：在实例创建完成后被立即调用
 	created() {
 		axios.get('/posts/' + this.id + '/.json').then((res) => {
 			this.blog = res.data
