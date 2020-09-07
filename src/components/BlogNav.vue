@@ -2,6 +2,7 @@
 	<nav>
 		<ul>
 			<li>
+				<!-- exact：精确匹配模式 -->
 				<router-link to="/" exact>博客</router-link>&nbsp;
 				<router-link to="/add" exact>写博客</router-link>
 			</li>

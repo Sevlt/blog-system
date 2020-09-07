@@ -12,7 +12,7 @@
 		</ul>
 		<br />
 		<p>作者：{{ blog.author }}</p>
-		<button class="button" @click="deleteBlod">删除</button>
+		<button class="button" @click="deleteBlog">删除</button>
 		<router-link class="button left" v-bind:to="'/edit/' + id">编辑</router-link>
 	</div>
 </template>
@@ -23,6 +23,7 @@ export default {
 	name: 'SingleBlog',
 	data() {
 		return {
+			// 当前路由的 id 值
 			id: this.$route.params.id,
 			blog: {},
 		}
@@ -33,8 +34,9 @@ export default {
 		})
 	},
 	methods: {
-		deleteBlod() {
+		deleteBlog() {
 			axios.delete('/posts/' + this.id + '/.json').then((res) => {
+				// 删除完成后返回首页（showBlog 页面）
 				this.$router.push({ path: '/' })
 			})
 		},

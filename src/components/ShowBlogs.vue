@@ -31,7 +31,8 @@ export default {
 				var blogsArry = []
 				// typeof res  ===  Object
 				for (let key in res) {
-					// 使用每个对象的key值，设置为对象id属性的属性值
+					// key 为数据库自动生成的字符串，res[key] = 某一对象
+					// 使用每个对象的 key 值，给对象添加 id 属性
 					res[key].id = key
 					// 把添加完id属性的对象push到数组
 					blogsArry.push(res[key])
